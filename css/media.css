@@ -15,6 +15,9 @@
     margin: 0;
     display: inline-block;
   }
+  .header .nav-item a:hover {
+    background-color: transparent;
+  }
   .header__section--bottom {
     padding: 10px 0;
   }
@@ -30,7 +33,7 @@
   .footer-main {
     padding: 5rem 0;
   }
-  .footer-main .row .col:last-child {
+  .footer-main .col:last-child {
     margin-top: 4rem;
   }
   .footer-main .subtitle {
@@ -67,19 +70,19 @@
   .receipts {
     padding: 6rem 0;
   }
-  .receipts .cards .card {
+  .receipts .card {
     width: calc(33.33% - 1rem);
   }
-  .brands__company .company {
+  .brands .company {
     width: calc(33.33% - 1rem);
   }
 }
 
 @media screen and (max-width: 575px) {
-  .footer-main .row {
+  .footer .row {
     margin-top: -4rem;
   }
-  .footer-main .row .col {
+  .footer .row .col {
     margin-top: 4rem;
   }
 }
