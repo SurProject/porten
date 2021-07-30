@@ -1,5 +1,8 @@
-main .link {
-  display: inline-block;
+.bg-black {
+  background-color: #000;
+}
+
+main .btn-outline-secondary {
   font-family: "PT Sans", sans-serif;
   background: transparent;
   border: 1px solid #fff;
@@ -9,13 +12,9 @@ main .link {
   font-size: 1.8rem;
   letter-spacing: 0.1em;
   line-height: 1;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-
-main .link:hover {
-  background-color: #fff;
-  color: #000;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border-radius: 0;
 }
 
 .title {
@@ -27,13 +26,14 @@ main .link:hover {
   font-weight: 700;
 }
 
-.cards {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+.subtitle {
+  font-family: "PT Sans", sans-serif;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  color: #fff;
 }
 
-.cards .card {
+.card {
   border-radius: 0;
   background-color: transparent;
   color: #fff;
@@ -42,44 +42,87 @@ main .link:hover {
   margin: 0.5rem;
   -webkit-transition: 0.3s;
   transition: 0.3s;
-  border-bottom: 1px solid transparent;
+  overflow: hidden;
+  position: relative;
 }
 
-.cards .card-img-wrapper {
+.card:after {
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  -webkit-transform: translateX(-105%);
+          transform: translateX(-105%);
+}
+
+.card-img-wrapper {
   background-color: #0f0f0f;
   padding: 30px 10px;
 }
 
-.cards .card-img-wrapper img {
+.card-img-wrapper img {
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
 }
 
-.cards .card .card-body {
+.card .card-body {
   padding: 0;
   font-family: "Playfair Display", serif;
 }
 
-.cards .card .card-body .card-title {
+.card .card-body .card-title {
   font-size: 1.8rem;
   margin-top: 2.5rem;
 }
 
-.cards .card .card-body .card-text {
+.card .card-body .card-text {
   font-size: 1.6rem;
   margin-top: 1rem;
 }
 
-.cards .card:hover {
-  border-bottom: 1px solid #fff;
+.with-dash {
+  margin-top: 6rem;
+  position: relative;
 }
 
-.dash {
+.with-dash::after {
+  content: "";
   width: 100%;
   max-width: 12rem;
   height: 1px;
   background-color: #fff;
+  position: absolute;
+  top: -3rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.bg-wrapper {
+  position: relative;
+}
+
+.bg-wrapper .bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -5;
+}
+
+.bg-wrapper .bg img {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .header {
@@ -92,12 +135,8 @@ main .link:hover {
   font-size: 1.2rem;
 }
 
-.header__section--top .header__img--phone {
-  max-width: 1.3rem;
-}
-
-.header__section--top .header__img--door {
-  max-width: 1.4rem;
+.header__section--top .time li + li::before {
+  content: "|";
 }
 
 .header__section--top .time a {
@@ -107,15 +146,8 @@ main .link:hover {
   position: relative;
 }
 
-.header__section--top .time a:hover {
-  color: #fff;
-}
-
-.header__section--top .time a:hover div {
-  background-color: #fff;
-}
-
-.header__section--top .time a div {
+.header__section--top .time a::before {
+  content: "";
   display: inline-block;
   position: absolute;
   top: 50%;
@@ -139,20 +171,24 @@ main .link:hover {
   padding: 0 15px;
 }
 
-.header__section--top .entrance {
+.header__section--top .entrance-registration a {
+  display: inline-block;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
-.header__section--top .entrance:hover {
-  color: #fff;
+.header__section--top .entrance-registration .entrance {
+  position: relative;
 }
 
-.header__section--top .entrance:hover div {
-  background-color: #fff;
-}
-
-.header__section--top .entrance div {
+.header__section--top .entrance-registration .entrance::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  left: -20px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
   background-color: #969696;
@@ -258,11 +294,6 @@ main .link:hover {
   transition: 0.5s;
 }
 
-.header .nav-item a:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-  color: #fff;
-}
-
 .header .btn {
   margin-left: 7rem;
   -webkit-transition: 0.5s;
@@ -270,10 +301,6 @@ main .link:hover {
   border-radius: 50%;
   padding: 10px;
   max-width: 40px;
-}
-
-.header .btn:hover {
-  background-color: #969696;
 }
 
 .header .btn-phone {
@@ -322,11 +349,22 @@ main .link:hover {
   margin-top: 16rem;
 }
 
+.general__block .img-wrap {
+  max-width: 19rem;
+  margin: 0 auto;
+}
+
 .general__block .general__city {
   text-transform: uppercase;
   font-size: 2.2rem;
   line-height: 1em;
-  margin-top: 0.7rem;
+  margin-top: 1.7rem;
+  font-weight: 400;
+}
+
+.general__block .general__city::after {
+  max-width: none;
+  top: -6px;
 }
 
 .general__subtitle {
@@ -337,140 +375,56 @@ main .link:hover {
   max-width: 700px;
 }
 
-.season {
-  background-color: #000;
-  -ms-flex-preferred-size: 140%;
-      flex-basis: 140%;
-  padding-top: 9rem;
-  padding-bottom: 5rem;
+.season-collection .season {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
 }
 
-.season__title {
-  font-family: "Playfair Display", serif;
-  font-weight: 700;
-  font-size: 3.6rem;
+.season-collection .collection-block {
+  padding-bottom: 10rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
 }
 
-.season__dash {
-  margin: 5rem auto 0;
-}
-
-.season__cards {
+.img-collection .collection-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 0 8rem;
-  margin-top: 5rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 8rem 0;
 }
 
-.season__cards .card {
-  width: calc(33.33% - 1rem);
-}
-
-.new {
-  position: relative;
-  text-align: center;
-  padding-top: 35rem;
-}
-
-.new__bg {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -5;
-}
-
-.new__bg img {
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.new .wrapper {
-  padding: 2rem;
-}
-
-.new__title {
-  font-family: "Playfair Display", serif;
-  font-weight: 700;
-  font-size: 3.6rem;
-}
-
-.new__dash {
-  margin: 3rem auto 0;
-}
-
-.new__link {
-  margin-top: 3rem;
-}
-
-.img-collection .img {
-  position: relative;
-}
-
-.img-collection .img__bg {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -5;
-}
-
-.img-collection .img__bg img {
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.img-collection .collection {
-  background-color: #000;
-  -ms-flex-preferred-size: 140%;
-      flex-basis: 140%;
-  text-align: center;
-  padding-top: 9rem;
-  padding-bottom: 5rem;
-}
-
-.img-collection .collection__dash {
-  margin: 5rem auto 0;
-}
-
-.img-collection .collection__subtitle {
-  font-family: "PT Sans", sans-serif;
+.img-collection .collection-block .subtitle {
   max-width: 500px;
-  margin: 5rem auto 0;
-  font-size: 1.4rem;
-  color: #fff;
 }
 
-.img-collection .collection__link {
+.img-collection .collection-block .collection__link {
   margin-top: 5rem;
 }
 
 .receipts {
-  padding: 12rem 0;
-  background-color: #000;
-}
-
-.receipts__dash {
-  margin: 5rem auto 0;
-}
-
-.receipts .cards {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  margin-top: 1rem;
-}
-
-.receipts .cards .card {
-  margin-top: 4rem;
-  width: calc(25% - 1rem);
+  padding: 10rem 0;
 }
 
 .brands {
@@ -478,12 +432,7 @@ main .link:hover {
   background-color: #0f0f0f;
 }
 
-.brands__dash {
-  margin: 5rem auto 0;
-}
-
-.brands__company {
-  margin-top: 4rem;
+.brands .row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -494,14 +443,11 @@ main .link:hover {
           justify-content: center;
 }
 
-.brands__company .company {
+.brands .row .company {
   display: inline-block;
-  padding: 0.5rem;
-  margin: 0.5rem;
-  width: calc(25% - 1rem);
 }
 
-.brands__company .company img {
+.brands .row .company img {
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
@@ -510,21 +456,6 @@ main .link:hover {
 .footer-main {
   position: relative;
   padding: 8rem 0;
-}
-
-.footer-main__bg {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -5;
-}
-
-.footer-main__bg img {
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
 }
 
 .footer-main .key-words {
@@ -542,11 +473,6 @@ main .link:hover {
   margin: 1rem;
   -webkit-transition: 0.3s;
   transition: 0.3s;
-}
-
-.footer-main .key-words .key-word:hover {
-  background-color: #fff;
-  color: #000;
 }
 
 .footer-main .input-group {
@@ -622,11 +548,6 @@ main .link:hover {
           box-shadow: none;
 }
 
-.footer-main .input-group button:hover {
-  background-color: #fff;
-  color: #000;
-}
-
 .footer-main .input-group .invalid-feedback {
   position: absolute;
   margin-top: 4.5rem;
@@ -659,11 +580,51 @@ main .link:hover {
   transition: 0.3s;
 }
 
-.footer-copyright a:hover {
-  color: #fff;
-}
-
 .footer-copyright h3 {
   font-size: 1.2rem;
+}
+
+@media screen and (hover: hover) {
+  main .btn-outline-secondary:hover {
+    background-color: #fff;
+    color: #000;
+  }
+  .card:hover:after {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  .header .btn:hover {
+    background-color: #969696;
+  }
+  .header .time a:hover {
+    color: #fff;
+  }
+  .header .time a:hover::before {
+    background-color: #fff;
+  }
+  .entrance-registration a:hover {
+    color: #fff;
+  }
+  .entrance-registration .entrance:hover::before {
+    background-color: #fff;
+  }
+  .nav-item a:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: #fff;
+  }
+  .heaeder .btn:hover {
+    background-color: #969696;
+  }
+  .footer-main .key-words .key-word:hover {
+    background-color: #fff;
+    color: #000;
+  }
+  .footer-main .input-group button:hover {
+    background-color: #fff;
+    color: #000;
+  }
+  .footer-copyright a:hover {
+    color: #fff;
+  }
 }
 /*# sourceMappingURL=style.css.map */

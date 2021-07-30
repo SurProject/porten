@@ -1,7 +1,4 @@
 @media screen and (max-width: 1199px) {
-  .season__cards {
-    padding: 0 4rem;
-  }
   .input-group button {
     margin-top: 3rem;
   }
@@ -24,9 +21,6 @@
   .general__block {
     margin-top: 8rem;
   }
-  .season__cards {
-    padding: 0 1.5rem;
-  }
   .input-group button {
     margin-top: 0;
   }
@@ -48,33 +42,12 @@
 }
 
 @media screen and (max-width: 767px) {
-  .content .season {
-    padding-top: 6rem;
-    padding-right: 0;
-  }
-  .content .season__cards {
-    padding: 0;
-  }
-  .content .new {
-    padding: 4rem 0;
-  }
-  .img-collection {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-  .img-collection .collection {
-    padding-top: 6rem;
-  }
   .receipts {
     padding: 6rem 0;
   }
-  .receipts .card {
-    width: calc(33.33% - 1rem);
-  }
-  .brands .company {
-    width: calc(33.33% - 1rem);
+  .season-collection .collection-block {
+    padding-top: 9rem;
+    padding-bottom: 9rem;
   }
 }
 
@@ -91,22 +64,11 @@
   html {
     font-size: 8px;
   }
-  .content .season__cards {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-  }
-  .content .season__cards .card {
-    width: calc(50% - 1rem);
-  }
-  .receipts .cards {
-    margin-top: 3rem;
-  }
-  .receipts .cards .card {
-    margin-top: 2rem;
-    width: calc(50% - 1rem);
-  }
-  .brands__company .company {
-    width: calc(50% - 1rem);
+}
+
+@media screen and (max-width: 991px) and (hover: hover) {
+  .header .nav-item a:hover {
+    background-color: transparent;
   }
 }
 /*# sourceMappingURL=media.css.map */
